@@ -118,9 +118,9 @@ TEST_F(DatatypeTest, rawData) {
 TEST_F(DatatypeTest, callGet) {
   sendHello();
   lcb_wait(instance);
-  callget(&instance, "key+5",5);
+  callget(&instance, "fooJSON",7);
   lcb_wait(instance);
-  fprintf(stderr, "\ndatatype for key fooJSONC is %d\n",*getvaluedtype); 
+  fprintf(stderr, "\ndatatype for key fooJSON is %d\n",*getvaluedtype); 
 }
 
 TEST_F(DatatypeTest, raw20M) {
@@ -148,7 +148,6 @@ TEST_F(DatatypeTest, raw20M) {
   cmd.v.v0.nkey = 6;
   cmd.v.v0.bytes = membuffer;
   cmd.v.v0.nbytes = numbytes; 
-  for(int i = 0;i<2000;i++)
   DatatypeTester(commands[0]);
 }
 
